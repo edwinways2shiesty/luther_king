@@ -1,0 +1,54 @@
+// Full-Stack Code for Luther-King E-Commerce Platform
+// Frontend: Next.js (React)
+// Backend: Node.js (Express.js)
+// Database: MongoDB/PostgreSQL
+// Authentication: JWT/Firebase Auth
+// Payments: MPesa, PayPal, Stripe
+// Hosting: AWS/Google Cloud
+
+// === Frontend (Next.js) ===
+// pages/index.js
+import Head from 'next/head';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import FeaturedProducts from '../components/FeaturedProducts';
+import Footer from '../components/Footer';
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>Luther-King E-Commerce</title>
+        <meta name="description" content="Your request, our concern." />
+      </Head>
+      <Navbar />
+      <Hero />
+      <FeaturedProducts />
+      <Footer />
+    </>
+  );
+}
+
+// === Backend (Express.js) ===
+// server/index.js
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const dotenv = require('dotenv');
+
+dotenv.config();
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+app.get('/', (req, res) => {
+  res.send('Luther-King E-Commerce API Running');
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

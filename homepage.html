@@ -1,0 +1,39 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const HomePage = () => {
+  return (
+    <div className="min-h-screen bg-gray-100 text-gray-900">
+      {/* Header */}
+      <header className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Luther-King</h1>
+        <nav>
+          <ul className="flex space-x-4">
+            <li><a href="#" className="hover:text-blue-500">Home</a></li>
+            <li><a href="#" className="hover:text-blue-500">Shop</a></li>
+            <li><a href="#" className="hover:text-blue-500">About</a></li>
+            <li><a href="#" className="hover:text-blue-500">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <motion.section 
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="h-96 flex items-center justify-center bg-blue-500 text-white text-center p-10"
+      >
+        <div>
+          <h2 className="text-4xl font-bold">Your Request, Our Concern</h2>
+          <p className="mt-4 text-lg">Explore the best technology products at unbeatable prices.</p>
+          <button className="mt-6 bg-white text-blue-500 px-6 py-2 rounded-full font-semibold hover:bg-gray-200">
+            Shop Now
+          </button>
+        </div>
+      </motion.section>
+    </div>
+  );
+};
+
+export default HomePage;
